@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.web_aoplogging.dao.log.LogOperationMapper" >
+    <insert id="insert" parameterType="com.demo.web_aoplogging.model.po.Log_operation" >
+        INSERT INTO log_operation 
+            (
+                login_username,
+                log_optType,
+                `describe`,
+                log_importance,
+                req_parameter,
+                createtime
+            )
+        VALUES
+            (
+                #{ login_username, jdbcType=VARCHAR},
+                #{ log_optType, jdbcType=VARCHAR},
+                #{ describe, jdbcType=VARCHAR},
+                #{ log_importance, jdbcType=VARCHAR},
+                #{ req_parameter, jdbcType=VARCHAR},
+                #{ createtime, jdbcType=TIMESTAMP}
+            )
+    </insert>
+</mapper>
